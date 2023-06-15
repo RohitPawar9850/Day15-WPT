@@ -7,7 +7,6 @@ function App() {
     <>
      <div className='bg-dark'><h1 className='bg-warning'>Stateful List</h1>
       <ListDemo></ListDemo></div>
-    
     </>
    
   );
@@ -16,18 +15,24 @@ function App() {
 function ListDemo()
 {
   let [list,setList] =useState(["delhi"]);
+  
   let addItemAction= () => {
-    let newList = [...list,"mumbai",];
+    let inputRef = document.querySelector("#id1");
+    let inputvalue = inputRef.value;
+    let newList = [...list,inputvalue];
     console.log(newList);
 
     setList(newList);
+    inputRef.value="";
   };
   
   return (
     <>
+    <input type="text" id="id1" placeholder='enter text' />
+    <br />
     <input type="button" value="Add New Item" onClick={addItemAction}/>
     {list.map((item) => (
-      <h1 className='bg-danger'>Hello {item}</h1>
+      <h1 className='bg-danger'>{item}</h1>
     ))}
     </>
   );
