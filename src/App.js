@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <h1 className='bg-info '>Props Demo</h1>
+    <MessageDemo message="Hi" username="Rohit Pawar"></MessageDemo>
+    <MessageDemo  message="Hi" username="Rohit Saste"></MessageDemo>
+    <MessageDemo  message="Hello" username="Rohit Jadhav"></MessageDemo>
+    </>
+  );
+}
+
+/*
+function MessageDemo(Props)
+{
+  console.log("I am inside MessageDemo",Props);
+  return (
+    <>
+    <h1>Hello {Props.username}</h1>
+    </>
+  );
+}
+
+*/
+
+function MessageDemo({message,username})
+{
+  return (
+    <>
+    <h1>Hello {message} {username} </h1>
+    </>
   );
 }
 
