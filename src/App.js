@@ -19,7 +19,7 @@ function ListDemo()
   let addItemAction= () => {
     let inputRef = document.querySelector("#id1");
     let inputvalue = inputRef.value;
-    let newList = [...list,inputvalue];
+    let newList = [inputvalue,...list];
     console.log(newList);
 
     setList(newList);
@@ -32,7 +32,7 @@ function ListDemo()
     <br />
     <input type="button" value="Add New Item" onClick={addItemAction}/>
     {list.map((item) => (
-      <h1 className='bg-danger'>{item}</h1>
+      <h1 className='bg-danger p-3'>{item}</h1>
     ))}
     </>
   );
