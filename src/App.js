@@ -11,19 +11,24 @@ function App() {
 
 function ListDemo()
 {
-  let list =[];
+  let list =["delhi","mumbai","pune"];
   let data="_Hello World_";
-  for(let i=0;i<10;i++)
-  {
-    list.push(data);
-  }
-  console.log(list);
-  console.log("List Length :"+list.length);
+  
   return (
     <>
-    {list.forEach((item) => item)}
-    {list.map((item) => item)}
-    <br />
+    <h1>{data}</h1>
+    {/**version 1 */}
+    {list.map((item) => " Hello "+item +",")}
+    
+    {/**version 2 */}
+    {list.map((item) => item+"*")}
+
+    {/**version 3 */}
+    {list.map((item) => (
+      <>
+      <h1>Hello World and Hello {item}</h1>
+      </>
+    ))}
     </>
   );
 }
