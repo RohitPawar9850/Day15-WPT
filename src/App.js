@@ -4,26 +4,30 @@ import './App.css';
 function App() {
   return (
     <>
-    <h1 className='bg-info '>Props Demo</h1>
-    <MessageDemo message="Hi" username="Rohit Pawar"></MessageDemo>
-    <MessageDemo  message="Hi" username="Rohit Saste"></MessageDemo>
-    <MessageDemo  message="Hello" username="Rohit Jadhav"></MessageDemo>
+      <ListDemo></ListDemo>
     </>
   );
 }
 
-
-function MessageDemo(Props)
+function ListDemo()
 {
-  console.log("I am inside MessageDemo",Props);
+  let list =[];
+  let data="_Hello World_";
+  for(let i=0;i<10;i++)
+  {
+    list.push(data);
+  }
+  console.log(list);
+  console.log("List Length :"+list.length);
   return (
     <>
-    <h1>Hello {Props.username}</h1>
+    {list.forEach((item) => item)}
+    {list.map((item) => item)}
+    <br />
     </>
   );
 }
-
-
+// simplest for loop
 
 
 export default App;
