@@ -1,43 +1,44 @@
-//import logo from './logo.svg';
-import { useState } from 'react';
-import './App.css';
+import { useRef, useState } from "react";
 
 function App() {
   return (
     <>
-     <div className='bg-dark'><h1 className='bg-warning'>Stateful List</h1>
-      <ListDemo></ListDemo></div>
+      <h1 className="bg-warning p-3">Stateful List</h1>
+      <ListDemo />
     </>
-   
   );
 }
 
-function ListDemo()
-{
-  let [list,setList] =useState(["delhi"]);
-  
-  let addItemAction= () => {
-    let inputRef = document.querySelector("#id1");
-    let inputvalue = inputRef.value;
-    let newList = [inputvalue,...list];
-    console.log(newList);
+function ListDemo() {
+  let inputRef = useRef();
+  let [list, setList] = useState(["delhi"]);
 
+  let addItemAction = () => {
+    // console.log(inputRef.current);
+    // console.log(document.querySelector("#id1"));
+
+    let inputValue = inputRef.current.value;
+    let newList = [inputValue, ...list];
     setList(newList);
-    inputRef.value="";
+
+    inputRef.current.value = "";
   };
-  
+
   return (
     <>
-    <input type="text" id="id1" placeholder='enter text' />
-    <br />
-    <input type="button" value="Add New Item" onClick={addItemAction}/>
-    {list.map((item) => (
-      <h1 className='bg-danger p-3'>{item}</h1>
-    ))}
+      <input
+        type="text"
+        id="id1"
+        ref={inputRef}
+        placeholder="Enter user input..."
+      />
+      <input type="button" value="Add New Item" onClick={addItemAction} />
+
+      {list.map((item) => (
+        <h1>{item}</h1>
+      ))}
     </>
   );
 }
-
-
 
 export default App;
