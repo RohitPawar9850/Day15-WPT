@@ -12,7 +12,7 @@ function App() {
   );
 }
 
-/*
+
 function MessageDemo(Props)
 {
   console.log("I am inside MessageDemo",Props);
@@ -23,15 +23,7 @@ function MessageDemo(Props)
   );
 }
 
-*/
 
-function MessageDemo({message,username})
-{
-  return (
-    <>
-    <h1>Hello {message} {username} </h1>
-    </>
-  );
-}
+
 
 export default App;
