@@ -1,31 +1,34 @@
 //import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
   return (
     <>
-      <ListDemo></ListDemo>
+     <div className='bg-dark'><h1 className='bg-warning'>Stateful List</h1>
+      <ListDemo></ListDemo></div>
+    
     </>
+   
   );
 }
 
 function ListDemo()
 {
-  let list =[];
-  let data="_Hello World_";
-  for(let i=0;i<20;i++)
-  {
-    list.push("");
-  }
+  let [list,setList] =useState(["delhi"]);
+  let addItemAction= () => {
+    let newList = [...list,"mumbai",];
+    console.log(newList);
+
+    setList(newList);
+  };
   
   return (
     <>
-    <h1>{data}</h1>
+    <input type="button" value="Add New Item" onClick={addItemAction}/>
     {list.map((item) => (
-      <div>
-        <h1>Hello World</h1>
-      </div>
-  ))}
+      <h1 className='bg-danger'>Hello {item}</h1>
+    ))}
     </>
   );
 }
