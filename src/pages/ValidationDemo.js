@@ -21,8 +21,8 @@ function ValidationDemo() {
         <input
           type="text"
           className="form-control"
-          placeholder="Enter..."
-          minLength="5"
+          placeholder="Enter Username"
+          minLength=""
           required
         />
 
